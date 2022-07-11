@@ -9801,11 +9801,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotesApp\\MyNotesApp\\MyNotesApp.csproj",
+      "projectUniqueName": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\MyNotesApp.csproj",
       "projectName": "MyNotesApp",
-      "projectPath": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotesApp\\MyNotesApp\\MyNotesApp.csproj",
+      "projectPath": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\MyNotesApp.csproj",
       "packagesPath": "C:\\Users\\thana\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotesApp\\MyNotesApp\\obj\\",
+      "outputPath": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thana\\AppData\\Roaming\\NuGet\\NuGet.Config",

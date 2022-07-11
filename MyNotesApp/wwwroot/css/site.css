@@ -20,3 +20,14 @@ body {
 .type {
     font-size:20px;
 }
+
+.links {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 1.7em;
+}
+
+.linksDiv ul {
+    list-style-type: none;
+}

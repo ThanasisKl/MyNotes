@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oYSA6eIaLqZspwiNqMVE3K2l6eaEcv2dtVAYMe8Cbq+U+DTHyIQdyT2EM07S6d4UpvSkdL72WZR27XfYG27G2A==",
+  "dgSpecHash": "QdF3Y/SBWTSbNku+eTv/NypA37UFdY80x1d0kerZZEavKySnXMMDmkjQ8gCcoNJrnpqDO8bpHdILhMvGSvHvAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotesApp\\MyNotesApp\\MyNotesApp.csproj",
+  "projectFilePath": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\MyNotesApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thana\\.nuget\\packages\\azure.core\\1.20.0\\azure.core.1.20.0.nupkg.sha512",
     "C:\\Users\\thana\\.nuget\\packages\\azure.identity\\1.5.0\\azure.identity.1.5.0.nupkg.sha512",
