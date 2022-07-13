@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Folder/CreateNote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9sZGVyXENyZWF0ZU5vdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Folder/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9sZGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -23,12 +31,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Note/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxDcmVhdGUuY3NodG1s
+[C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Note/CreateFolder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxDcmVhdGVGb2xkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Note/CreateNote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxDcmVhdGVOb3RlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Note/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Note/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/thana/OneDrive/Συνημμένα/Υπολογιστής/MyNotes/MyNotesApp/Views/Note/Index.cshtml]

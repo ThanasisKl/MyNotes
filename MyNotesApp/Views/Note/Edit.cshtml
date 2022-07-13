@@ -1,24 +1,24 @@
 ﻿@model Note
 @{
-    ViewData["Title"] = "Delete Note/Folder";
+    ViewData["Title"] = "Edit";
 }
-<form method="post" asp-action="Delete">
-	<input asp-for="Id" hidden />
+<form method="post" asp-action="Edit">
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary">Delete Note or Folder</h2>
+			<h2 class="text-primary">Edit Note</h2>
 			<hr />
 		</div>
-		@*<div asp-validation-summary="All"></div>*@
 		<div class="mb-3">
 			<label asp-for="Title"></label>
-			<input asp-for="Title" disabled class="form-control" />
+			<input asp-for="Title" class="form-control" />
+			<span asp-validation-for="Title" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
 			<label asp-for="Content"></label>
-			<input asp-for="Content" disabled class="form-control" />
+			<input asp-for="Content" class="form-control" />
+			<span asp-validation-for="Content" class="text-danger"></span>
 		</div>
-		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+		<button type="submit" class="btn btn-primary" style="width:150px">Update</button>
 		<a asp-controller="Note" asp-action="Index" class="btn btn-secondary" style="width:150px">
 			Back to List
 		</a>

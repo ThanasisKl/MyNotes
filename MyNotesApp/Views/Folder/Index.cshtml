@@ -1,6 +1,6 @@
-﻿@model IEnumerable<Note>
+﻿@model List<FoldersNote>
 @{
-    ViewData["Title"] = "MyNotes";
+    ViewData["Title"] = "Folder's Notes";
     ViewData["Content"] = "";
 }
 
@@ -10,10 +10,7 @@
             <h2 class="text-primary">My Notes</h2>
         </div>
         <div class="col-6 text-end">
-             <a asp-controller="Note" asp-action="CreateFolder" class="btn btn-primary">
-                <i class="bi bi-folder-plus"></i> &nbsp; Create New Folder
-            </a>
-            <a asp-controller="Note" asp-action="CreateNote" class="btn btn-primary">
+            <a asp-controller="Folder" asp-action="CreateNote" asp-route-id="@ViewBag.Message" class="btn btn-primary">
                 <i class="bi bi-file-earmark-plus"></i> &nbsp; Create New Note
             </a>
         </div>
@@ -41,11 +38,7 @@
             {
                 <tr>
                     <td width="8%">
-                        @if(@obj.Type == "note"){
-                            <i class="bi bi-sticky type"></i>
-                        }else{
-                            <i class="bi bi-folder type"></i>
-                        }
+                        <i class="bi bi-sticky type"></i>  
                     </td>
                     <td width="20%">
                         @obj.Title
@@ -64,15 +57,12 @@
                     </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
-                             @if(@obj.Type == "note"){
-                                 <a asp-controller="Note" asp-action="Edit" asp-route-id="@obj.Id"
-                                 class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
-                            }else{
-                                 <a asp-controller="Folder" asp-action="Index" asp-route-id="@obj.Id"
-                                 class="btn btn-primary mx-2"> <i class="bi bi-stickies"></i> View</a>
-                            }
+                             <a asp-controller="Note" asp-action="Edit" asp-route-id="@obj.Id"
+                                 class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit
+                             </a>
                             <a asp-controller="Note" asp-action="Delete" asp-route-id="@obj.Id"
-                            class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
+                                class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete
+                            </a>
 					    </div>
 				    </td>
                 </tr>

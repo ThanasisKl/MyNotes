@@ -6,36 +6,58 @@ namespace MyNotesApp.Controllers
 {
     public class NoteController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext note_db;
         public NoteController(ApplicationDbContext db)
         {
-            _db = db;
+            note_db = db;
         }
         public IActionResult Index()
         {
-            IEnumerable<Note> objCategoryList = _db.Notes;
-            return View(objCategoryList);
+            IEnumerable<Note> objNotesList = note_db.Notes;
+            return View(objNotesList.Reverse());
         }
 
         //GET
-        public IActionResult Create()
+        public IActionResult CreateNote()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Note obj)
+        public IActionResult CreateNote(Note obj)
+        {
+      
+            if (ModelState.IsValid)
+            {
+                note_db.Notes.Add(obj);
+                note_db.SaveChanges();
+                TempData["success"] = "Note created successfully";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        public IActionResult CreateFolder()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateFolder(Note obj)
         {
             /*if (obj.Name == obj.DisplayOrder.ToString())
             {
                 ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
             }*/
+            obj.Type = "folder";
+
             if (ModelState.IsValid)
             {
-                _db.Notes.Add(obj);
-                _db.SaveChanges();
-                TempData["success"] = "Category created successfully";
+                note_db.Notes.Add(obj);
+                note_db.SaveChanges();
+                TempData["success"] = "Note created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -47,7 +69,7 @@ namespace MyNotesApp.Controllers
             {
                 return NotFound();
             }
-            var noteFromDb = _db.Notes.Find(id);
+            var noteFromDb = note_db.Notes.Find(id);
             //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
             //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
@@ -64,18 +86,65 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _db.Notes.Find(id);
+            var obj = note_db.Notes.Find(id);
             if (obj == null)
             {
                 return NotFound();
             }
 
-            _db.Notes.Remove(obj);
-            _db.SaveChanges();
-            TempData["success"] = "Category deleted successfully";
+            note_db.Notes.Remove(obj);
+            note_db.SaveChanges();
+            TempData["success"] = "Note deleted successfully";
             return RedirectToAction("Index");
 
         }
+
+        //GET
+        public IActionResult Edit(int? id)
+        {
+            if (id==null || id == 0)
+            {
+                return NotFound();
+            }
+            var categoryFromDb = note_db.Notes.Find(id);
+            //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
+            //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
+
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+
+            return View(categoryFromDb);
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Note obj)
+        {
+            /*if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
+            }*/
+            obj.Type = "note";
+            if (ModelState.IsValid)
+            {
+                note_db.Notes.Update(obj);
+                note_db.SaveChanges();
+                TempData["success"] = "Note updated successfully";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
+
+        public IActionResult ViewFolder()
+        {
+
+            IEnumerable<Note> objCategoryList = note_db.Notes;
+            return View(objCategoryList.Reverse());
+        }
+
     }
 }
 

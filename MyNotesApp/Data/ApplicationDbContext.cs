@@ -11,5 +11,6 @@ namespace MyNotesApp.Data
         }
 
         public DbSet<Note> Notes { get; set; }
+        public DbSet<FoldersNote> FoldersNotes { get; set; }
     }
 }

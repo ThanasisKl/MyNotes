@@ -1,0 +1,33 @@
+﻿@model FoldersNote
+@{
+    ViewData["Title"] = "Create Note";
+}
+<form asp-controller="Folder" method="post">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Create Note</h2>
+			<hr />
+		</div>
+		<input asp-for="Note_id" value="@ViewBag.Message" hidden/>
+		<div class="mb-3">
+			<label asp-for="Title"></label>
+			<input asp-for="Title" class="form-control" />
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Content"></label>
+			<input asp-for="Content" class="form-control" />
+			<span asp-validation-for="Content" class="text-danger"></span>
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+		<a asp-controller="Folder" asp-action="Index" asp-route-id="@ViewBag.Message" class="btn btn-secondary" style="width:150px">
+			Back to List
+		</a>
+	</div>
+</form>
+
+@section Scripts{   @*client side validation*@
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
