@@ -525,8 +525,6 @@ C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNote
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win-arm\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
-C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win-arm64\lib\net6.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll

@@ -47,17 +47,13 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateFolder(Note obj)
         {
-            /*if (obj.Name == obj.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
-            }*/
             obj.Type = "folder";
 
             if (ModelState.IsValid)
             {
                 note_db.Notes.Add(obj);
                 note_db.SaveChanges();
-                TempData["success"] = "Note created successfully";
+                TempData["success"] = "Folder created successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -70,8 +66,6 @@ namespace MyNotesApp.Controllers
                 return NotFound();
             }
             var noteFromDb = note_db.Notes.Find(id);
-            //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
-            //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
             if (noteFromDb == null)
             {
@@ -91,10 +85,22 @@ namespace MyNotesApp.Controllers
             {
                 return NotFound();
             }
-
             note_db.Notes.Remove(obj);
             note_db.SaveChanges();
-            TempData["success"] = "Note deleted successfully";
+            TempData["success"] = "Deleted successfully";
+
+            if (obj.Type == "folder") 
+            {
+                IEnumerable<FoldersNote> objFoldersNotesList = note_db.FoldersNotes;
+                foreach (var row in objFoldersNotesList)
+                {
+                    if (id == row.Note_id)
+                    {
+                        note_db.FoldersNotes.Remove(row);
+                    }
+                }
+            }
+            note_db.SaveChanges();
             return RedirectToAction("Index");
 
         }
@@ -106,16 +112,16 @@ namespace MyNotesApp.Controllers
             {
                 return NotFound();
             }
-            var categoryFromDb = note_db.Notes.Find(id);
+            var NoteFromDb = note_db.Notes.Find(id);
             //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
             //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
-            if (categoryFromDb == null)
+            if (NoteFromDb == null)
             {
                 return NotFound();
             }
 
-            return View(categoryFromDb);
+            return View(NoteFromDb);
         }
 
         //POST
@@ -132,7 +138,7 @@ namespace MyNotesApp.Controllers
             {
                 note_db.Notes.Update(obj);
                 note_db.SaveChanges();
-                TempData["success"] = "Note updated successfully";
+                TempData["success"] = "Updated successfully";
                 return RedirectToAction("Index");
             }
             return View(obj);

@@ -1,13 +1,14 @@
-﻿@model Note
+﻿@model FoldersNote
 @{
     ViewData["Title"] = "Edit Note";
 }
-<form method="post" asp-action="Edit">
+<form method="post" asp-action="EditNote">
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
 			<h2 class="text-primary">Edit Note</h2>
 			<hr />
 		</div>
+		<input asp-for="Note_id" hidden value="@ViewBag.Message" />
 		<div class="mb-3">
 			<label asp-for="Title"></label>
 			<input asp-for="Title" class="form-control" />
@@ -19,7 +20,7 @@
 			<span asp-validation-for="Content" class="text-danger"></span>
 		</div>
 		<button type="submit" class="btn btn-primary" style="width:150px">Update</button>
-		<a asp-controller="Note" asp-action="Index" class="btn btn-secondary" style="width:150px">
+		<a asp-controller="Folder" asp-action="Index" asp-route-id="@ViewBag.Message" class="btn btn-secondary" style="width:150px">
 			Back to List
 		</a>
 	</div>

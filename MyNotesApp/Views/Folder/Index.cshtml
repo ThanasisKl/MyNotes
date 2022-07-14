@@ -7,10 +7,10 @@
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">My Notes</h2>
+            <h2 class="text-primary"><i class="bi bi-folder"></i> @ViewBag.FolderName</h2>
         </div>
         <div class="col-6 text-end">
-            <a asp-controller="Folder" asp-action="CreateNote" asp-route-id="@ViewBag.Message" class="btn btn-primary">
+            <a asp-controller="Folder" asp-action="CreateNote" asp-route-id="@ViewBag.Message" id="AddNewFileBtn" class="btn btn-primary">
                 <i class="bi bi-file-earmark-plus"></i> &nbsp; Create New Note
             </a>
         </div>
@@ -57,10 +57,10 @@
                     </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
-                             <a asp-controller="Note" asp-action="Edit" asp-route-id="@obj.Id"
+                             <a asp-controller="Folder" asp-action="EditNote" asp-route-id="@obj.Id"
                                  class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit
                              </a>
-                            <a asp-controller="Note" asp-action="Delete" asp-route-id="@obj.Id"
+                            <a asp-controller="Folder" asp-action="DeleteNote" asp-route-id="@obj.Id"
                                 class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete
                             </a>
 					    </div>
@@ -70,3 +70,20 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    function changeBtnsText(condition) {
+    if (condition.matches) { // If media query matches
+        document.getElementById("AddNewFileBtn").innerHTML = '<i class="bi bi-file-earmark-plus">';
+        document.getElementById("AddNewFileBtn").style.fontSize = "1.3em";
+        document.getElementById("AddNewFileBtn").style.marginBottom = "15px";
+    } else {
+        document.getElementById("AddNewFileBtn").style.fontSize = "1em";
+        document.getElementById("AddNewFileBtn").innerHTML = '<i class="bi bi-file-earmark-plus"> &nbsp; Create New Note';
+    }
+
+}
+    let condition = window.matchMedia("(max-width: 1050px)");
+    changeBtnsText(condition);
+    condition.addListener(changeBtnsText);
+</script>

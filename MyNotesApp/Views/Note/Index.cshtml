@@ -10,10 +10,10 @@
             <h2 class="text-primary">My Notes</h2>
         </div>
         <div class="col-6 text-end">
-             <a asp-controller="Note" asp-action="CreateFolder" class="btn btn-primary">
+             <a asp-controller="Note" asp-action="CreateFolder" class="btn btn-primary" id="AddNewFolderBtn">
                 <i class="bi bi-folder-plus"></i> &nbsp; Create New Folder
             </a>
-            <a asp-controller="Note" asp-action="CreateNote" class="btn btn-primary">
+            <a asp-controller="Note" asp-action="CreateNote" class="btn btn-primary" id="AddNewFileBtn">
                 <i class="bi bi-file-earmark-plus"></i> &nbsp; Create New Note
             </a>
         </div>
@@ -71,7 +71,7 @@
                                  <a asp-controller="Folder" asp-action="Index" asp-route-id="@obj.Id"
                                  class="btn btn-primary mx-2"> <i class="bi bi-stickies"></i> View</a>
                             }
-                            <a asp-controller="Note" asp-action="Delete" asp-route-id="@obj.Id"
+                            <a asp-controller="Note" asp-action="Delete" asp-route-id="@obj.Id" asp-
                             class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
 					    </div>
 				    </td>
@@ -80,3 +80,25 @@
         </tbody>
     </table>
 </div>
+<script>
+    function changeBtnsText(condition) {
+    if (condition.matches) { // If media query matches
+        document.getElementById("AddNewFolderBtn").innerHTML = '<i class="bi bi-folder-plus"></i>';
+        document.getElementById("AddNewFileBtn").innerHTML = '<i class="bi bi-file-earmark-plus">';
+        document.getElementById("AddNewFileBtn").style.fontSize = "1.3em";
+        document.getElementById("AddNewFolderBtn").style.fontSize = "1.3em";
+        document.getElementById("AddNewFolderBtn").style.marginBottom = "15px";
+        document.getElementById("AddNewFileBtn").style.marginBottom = "15px";
+        document.getElementById("AddNewFolderBtn").style.marginRight = "20px";
+    } else {
+        document.getElementById("AddNewFileBtn").style.fontSize = "1em";
+        document.getElementById("AddNewFolderBtn").style.fontSize = "1em";
+        document.getElementById("AddNewFolderBtn").innerHTML = '<i class="bi bi-folder-plus"></i> &nbsp; Create New Folder';
+        document.getElementById("AddNewFileBtn").innerHTML = '<i class="bi bi-file-earmark-plus"> &nbsp; Create New Note';
+    }
+
+}
+    let condition = window.matchMedia("(max-width: 1050px)");
+    changeBtnsText(condition);
+    condition.addListener(changeBtnsText);
+</script>

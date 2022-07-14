@@ -1,12 +1,12 @@
-﻿@model Note
+﻿@model FoldersNote
 @{
-    ViewData["Title"] = "Delete Note/Folder";
+    ViewData["Title"] = "Delete Note";
 }
-<form method="post" asp-action="Delete">
+<form method="post" asp-action="DeleteNote">
 	<input asp-for="Id" hidden />
 	<div class="border p-3 mt-4">
 		<div class="row pb-2">
-			<h2 class="text-primary">Delete Note or Folder</h2>
+			<h2 class="text-primary">Delete Note</h2>
 			<hr />
 		</div>
 		<div class="mb-3">
@@ -18,7 +18,7 @@
 			<input asp-for="Content" disabled class="form-control" />
 		</div>
 		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
-		<a asp-controller="Note" asp-action="Index" class="btn btn-secondary" style="width:150px">
+		<a asp-controller="Folder" asp-action="Index" asp-route-id="@ViewBag.Message" class="btn btn-secondary" style="width:150px">
 			Back to List
 		</a>
 	</div>
