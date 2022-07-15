@@ -24,6 +24,8 @@ namespace MyNotesApp.Controllers
                     notesOfFolder.Add(row);
                 }
             }
+            notesOfFolder.Sort((x, y) => x.CreatedDateTime.CompareTo(y.CreatedDateTime));
+            notesOfFolder.Reverse();
             return notesOfFolder;
         }
 
@@ -42,6 +44,7 @@ namespace MyNotesApp.Controllers
         {
             ViewBag.Message = id;
             ViewBag.FolderName = getFolderTitle(id);
+            //List<FoldersNote> notesList = getNotesList(id);
             return View(getNotesList(id));
         }
 
@@ -59,6 +62,7 @@ namespace MyNotesApp.Controllers
             if (ModelState.IsValid)
             {
                 obj.Id = 0;
+                obj.CreatedDateTime = DateTime.Now;
                 note_db.FoldersNotes.Add(obj);
                 note_db.SaveChanges();
                 TempData["success"] = "Note created successfully";
@@ -126,6 +130,7 @@ namespace MyNotesApp.Controllers
         public IActionResult EditNote(FoldersNote obj)
         {
             obj.Type = "note";
+            obj.CreatedDateTime = DateTime.Now;
             if (ModelState.IsValid)
             {
                 note_db.FoldersNotes.Update(obj);

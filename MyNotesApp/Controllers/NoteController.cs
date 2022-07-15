@@ -14,7 +14,10 @@ namespace MyNotesApp.Controllers
         public IActionResult Index()
         {
             IEnumerable<Note> objNotesList = note_db.Notes;
-            return View(objNotesList.Reverse());
+            List<Note> notesList = objNotesList.ToList();  //converts IEnumerable to List
+            notesList.Sort((x, y) => x.CreatedDateTime.CompareTo(y.CreatedDateTime));
+            notesList.Reverse();
+            return View(notesList);
         }
 
         //GET
@@ -134,6 +137,7 @@ namespace MyNotesApp.Controllers
                 ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
             }*/
             obj.Type = "note";
+            obj.CreatedDateTime = DateTime.Now;
             if (ModelState.IsValid)
             {
                 note_db.Notes.Update(obj);

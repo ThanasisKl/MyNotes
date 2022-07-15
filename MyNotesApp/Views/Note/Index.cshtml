@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Note>
+﻿@model List<Note>
 @{
     ViewData["Title"] = "MyNotes";
     ViewData["Content"] = "";
+    ViewData["TitleContent"] = "";
 }
 
 <div class="container p-3">
@@ -32,6 +33,9 @@
                     Content
                 </th>
                 <th>
+                    Last Update
+                </th>
+                <th>
                     Options
                 </th>
             </tr>
@@ -47,10 +51,18 @@
                             <i class="bi bi-folder type"></i>
                         }
                     </td>
-                    <td width="20%">
-                        @obj.Title
+                    <td width="15%">
+                        @if (obj.Title.Length > 25)
+                        {
+                            ViewData["TitleContent"]  = obj.Title.Substring(0, 22) + "...";
+                        }
+                        else
+                        {
+                            ViewData["TitleContent"] = obj.Title;
+                        }
+                        @ViewData["TitleContent"]
                     </td>
-                    <td width="40%">
+                    <td width="32%">
                         @if (obj.Content.Length > 35)
                         {
                             ViewData["Content"]  = obj.Content.Substring(0, 34) + "...";
@@ -61,6 +73,12 @@
                         }
 
                        @ViewData["Content"]
+                    </td>
+                    <td>
+                        @{
+                            ViewData["Date"] = obj.CreatedDateTime.Day + "-" + obj.CreatedDateTime.Month + "-" + obj.CreatedDateTime.Year;
+                        }
+                        @ViewData["Date"]
                     </td>
                     <td>
                         <div class="w-75 btn-group" role="group">
@@ -80,25 +98,4 @@
         </tbody>
     </table>
 </div>
-<script>
-    function changeBtnsText(condition) {
-    if (condition.matches) { // If media query matches
-        document.getElementById("AddNewFolderBtn").innerHTML = '<i class="bi bi-folder-plus"></i>';
-        document.getElementById("AddNewFileBtn").innerHTML = '<i class="bi bi-file-earmark-plus">';
-        document.getElementById("AddNewFileBtn").style.fontSize = "1.3em";
-        document.getElementById("AddNewFolderBtn").style.fontSize = "1.3em";
-        document.getElementById("AddNewFolderBtn").style.marginBottom = "15px";
-        document.getElementById("AddNewFileBtn").style.marginBottom = "15px";
-        document.getElementById("AddNewFolderBtn").style.marginRight = "20px";
-    } else {
-        document.getElementById("AddNewFileBtn").style.fontSize = "1em";
-        document.getElementById("AddNewFolderBtn").style.fontSize = "1em";
-        document.getElementById("AddNewFolderBtn").innerHTML = '<i class="bi bi-folder-plus"></i> &nbsp; Create New Folder';
-        document.getElementById("AddNewFileBtn").innerHTML = '<i class="bi bi-file-earmark-plus"> &nbsp; Create New Note';
-    }
-
-}
-    let condition = window.matchMedia("(max-width: 1050px)");
-    changeBtnsText(condition);
-    condition.addListener(changeBtnsText);
-</script>
+<script src="~/js/notes_main.js" asp-append-version="true"></script>

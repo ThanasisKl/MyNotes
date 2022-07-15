@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gVPZN39xd9/nWCBpnudq5ZFbR1YA+yjeeR8xXx+QX3w=",
+  "Hash": "QviXwKtK+czZzkB5hjfDB5wWN6C6X53JnnLfedhOpCA=",
   "Source": "MyNotesApp",
   "BasePath": "_content/MyNotesApp",
   "Mode": "Default",
@@ -85,12 +85,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\js\\folders_main.js",
       "SourceId": "MyNotesApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\",
       "BasePath": "_content/MyNotesApp",
-      "RelativePath": "js/site.js",
+      "RelativePath": "js/folders_main.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,7 +99,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\site.js"
+      "OriginalItemSpec": "wwwroot\\js\\folders_main.js"
+    },
+    {
+      "Identity": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\js\\notes_main.js",
+      "SourceId": "MyNotesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\",
+      "BasePath": "_content/MyNotesApp",
+      "RelativePath": "js/notes_main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\notes_main.js"
     },
     {
       "Identity": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
