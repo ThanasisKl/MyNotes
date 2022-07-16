@@ -44,7 +44,6 @@ namespace MyNotesApp.Controllers
         {
             ViewBag.Message = id;
             ViewBag.FolderName = getFolderTitle(id);
-            //List<FoldersNote> notesList = getNotesList(id);
             return View(getNotesList(id));
         }
 
@@ -104,6 +103,7 @@ namespace MyNotesApp.Controllers
             note_db.SaveChanges();
             TempData["success"] = "Note deleted successfully";
             ViewBag.FolderName = getFolderTitle(obj.Note_id);
+            ViewBag.Message = obj.Note_id;
             return View("Index", getNotesList(obj.Note_id));
         }
 

@@ -31,3 +31,7 @@ body {
 .linksDiv ul {
     list-style-type: none;
 }
+
+.input-content {
+    height:200px;
+}

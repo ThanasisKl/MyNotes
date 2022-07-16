@@ -74,7 +74,7 @@ namespace MyNotesApp.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.Type = noteFromDb.Type;
             return View(noteFromDb);
         }
 

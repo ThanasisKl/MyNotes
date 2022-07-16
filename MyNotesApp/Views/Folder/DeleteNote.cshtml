@@ -15,7 +15,7 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="Content"></label>
-			<input asp-for="Content" disabled class="form-control" />
+			<textarea asp-for="Content" disabled class="form-control input-content"></textarea>
 		</div>
 		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
 		<a asp-controller="Folder" asp-action="Index" asp-route-id="@ViewBag.Message" class="btn btn-secondary" style="width:150px">
