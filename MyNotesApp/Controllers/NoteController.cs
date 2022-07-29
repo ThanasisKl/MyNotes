@@ -132,10 +132,6 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Note obj)
         {
-            /*if (obj.Name == obj.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
-            }*/
             obj.Type = "note";
             obj.CreatedDateTime = DateTime.Now;
             if (ModelState.IsValid)

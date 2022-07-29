@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QviXwKtK+czZzkB5hjfDB5wWN6C6X53JnnLfedhOpCA=",
+  "Hash": "51jtmZJeLoMlqrTELcv2XOavfUnLLzOLs2YPh3wE7Jk=",
   "Source": "MyNotesApp",
   "BasePath": "_content/MyNotesApp",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\folders_main.js"
+    },
+    {
+      "Identity": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\js\\login.js",
+      "SourceId": "MyNotesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\",
+      "BasePath": "_content/MyNotesApp",
+      "RelativePath": "js/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
       "Identity": "C:\\Users\\thana\\OneDrive\\Συνημμένα\\Υπολογιστής\\MyNotes\\MyNotesApp\\wwwroot\\js\\notes_main.js",
