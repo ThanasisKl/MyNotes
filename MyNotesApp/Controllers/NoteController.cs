@@ -4,25 +4,53 @@ using MyNotesApp.Models;
 
 namespace MyNotesApp.Controllers
 {
-    public class NoteController : Controller
+    public class NoteController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ApplicationDbContext note_db;
         public NoteController(ApplicationDbContext db)
         {
             note_db = db;
         }
+
         public IActionResult Index()
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
+
             IEnumerable<Note> objNotesList = note_db.Notes;
-            List<Note> notesList = objNotesList.ToList();  //converts IEnumerable to List
+            List<Note> notesListTemp = objNotesList.ToList();
+            List<Note> notesList = new List<Note>();
+            foreach (Note note in notesListTemp)
+            {
+                if (note.Username == username)
+                {
+                    notesList.Add(note);
+                }
+
+            }
             notesList.Sort((x, y) => x.CreatedDateTime.CompareTo(y.CreatedDateTime));
             notesList.Reverse();
+            if (HttpContext.Session.GetString("welcome_msg") == "true")
+            {
+                ViewBag.username = username;
+                HttpContext.Session.SetString("welcome_msg", "false");
+            }
             return View(notesList);
         }
 
         //GET
         public IActionResult CreateNote()
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 
@@ -30,19 +58,28 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateNote(Note obj)
         {
-      
-            if (ModelState.IsValid)
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
             {
-                note_db.Notes.Add(obj);
-                note_db.SaveChanges();
-                TempData["success"] = "Note created successfully";
-                return RedirectToAction("Index");
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
             }
-            return View(obj);
+
+            obj.Username = username;
+            note_db.Notes.Add(obj);
+            note_db.SaveChanges();
+            TempData["success"] = "Note created successfully";
+            return RedirectToAction("Index");
         }
 
         public IActionResult CreateFolder()
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 
@@ -50,20 +87,30 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateFolder(Note obj)
         {
-            obj.Type = "folder";
-
-            if (ModelState.IsValid)
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
             {
-                note_db.Notes.Add(obj);
-                note_db.SaveChanges();
-                TempData["success"] = "Folder created successfully";
-                return RedirectToAction("Index");
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
             }
-            return View(obj);
+
+            obj.Type = "folder";
+            obj.Username = username;
+            note_db.Notes.Add(obj);
+            note_db.SaveChanges();
+            TempData["success"] = "Folder created successfully";
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int? id)
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
+
             if (id == null || id == 0)
             {
                 return NotFound();
@@ -83,6 +130,13 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
+
             var obj = note_db.Notes.Find(id);
             if (obj == null)
             {
@@ -111,13 +165,18 @@ namespace MyNotesApp.Controllers
         //GET
         public IActionResult Edit(int? id)
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
+
             if (id==null || id == 0)
             {
                 return NotFound();
             }
             var NoteFromDb = note_db.Notes.Find(id);
-            //var categoryFromDbFirst = _db.Categories.FirstOrDefault(u=>u.Id==id);
-            //var categoryFromDbSingle = _db.Categories.SingleOrDefault(u => u.Id == id);
 
             if (NoteFromDb == null)
             {
@@ -132,25 +191,20 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Note obj)
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
+            obj.Username = username;
             obj.Type = "note";
             obj.CreatedDateTime = DateTime.Now;
-            if (ModelState.IsValid)
-            {
-                note_db.Notes.Update(obj);
-                note_db.SaveChanges();
-                TempData["success"] = "Updated successfully";
-                return RedirectToAction("Index");
-            }
-            return View(obj);
+            note_db.Notes.Update(obj);
+            note_db.SaveChanges();
+            TempData["success"] = "Updated successfully";
+            return RedirectToAction("Index");
         }
-
-        public IActionResult ViewFolder()
-        {
-
-            IEnumerable<Note> objCategoryList = note_db.Notes;
-            return View(objCategoryList.Reverse());
-        }
-
     }
 }
 

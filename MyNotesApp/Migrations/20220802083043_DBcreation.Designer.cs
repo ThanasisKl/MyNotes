@@ -12,8 +12,8 @@ using MyNotesApp.Data;
 namespace MyNotesApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220713103714_addNoteToDatabase")]
-    partial class addNoteToDatabase
+    [Migration("20220802083043_DBcreation")]
+    partial class DBcreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,9 +79,27 @@ namespace MyNotesApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Notes");
+                });
+
+            modelBuilder.Entity("MyNotesApp.Models.User", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

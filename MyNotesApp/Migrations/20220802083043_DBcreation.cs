@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyNotesApp.Migrations
 {
     /// <inheritdoc />
-    public partial class addNoteToDatabase : Migration
+    public partial class DBcreation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,6 +35,7 @@ namespace MyNotesApp.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -42,6 +43,18 @@ namespace MyNotesApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Username);
                 });
         }
 
@@ -53,6 +66,9 @@ namespace MyNotesApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Notes");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

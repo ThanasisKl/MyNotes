@@ -17,6 +17,12 @@ namespace MyNotesApp.Controllers
 
         public IActionResult Index()
         {
+            string username = HttpContext.Session.GetString("user");
+            if (username == null)
+            {
+                TempData["success"] = "Your session has expired. Please log-in to your account again";
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 
@@ -28,9 +34,9 @@ namespace MyNotesApp.Controllers
         //POST
         [HttpPost, ActionName("Login")]
         [ValidateAntiForgeryToken]
-        public IActionResult LoginPost(string email,string password)
+        public IActionResult LoginPost(string username,string password)
         {
-            var obj = note_db.Users.Find(email);
+            var obj = note_db.Users.Find(username);
             if (obj == null)
             {
                 return RedirectToAction("Login");
@@ -38,10 +44,11 @@ namespace MyNotesApp.Controllers
 
             if (obj.Password == password)
             {
-                ViewBag.email = email;
-                return View("Index");
+                HttpContext.Session.SetString("user",username);
+                HttpContext.Session.SetString("welcome_msg", "true");
+                return RedirectToAction("Index","Note");
             }else {
-                TempData["error"] = "Email or password are incorrect";
+                TempData["error"] = "Username or password are incorrect";
                 return RedirectToAction("Login");
             }
 
@@ -57,7 +64,7 @@ namespace MyNotesApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult RegisterPost(User obj)
         {
-            var user = note_db.Users.Find(obj.Email);
+            var user = note_db.Users.Find(obj.Username);
             if (user == null)
             {
                 if (ModelState.IsValid)

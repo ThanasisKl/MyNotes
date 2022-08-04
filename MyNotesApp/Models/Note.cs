@@ -11,6 +11,10 @@ namespace MyNotesApp.Models
         [Required]
         public string Title { get; set; }
 
+        [Required]
+        public string Username { get; set; }
+
+
         public string Content { get; set; } = "";
 
         public string Type { get; set; } = "note";

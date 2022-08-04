@@ -550,3 +550,10 @@ C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNote
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\obj\Debug\net6.0\MyNotesApp.pdb
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\obj\Debug\net6.0\MyNotesApp.genruntimeconfig.cache
 C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\obj\Debug\net6.0\ref\MyNotesApp.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\Users\thana\OneDrive\Συνημμένα\Υπολογιστής\MyNotes\MyNotesApp\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

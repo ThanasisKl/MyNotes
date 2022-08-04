@@ -76,6 +76,10 @@ namespace MyNotesApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Notes");
@@ -83,14 +87,14 @@ namespace MyNotesApp.Migrations
 
             modelBuilder.Entity("MyNotesApp.Models.User", b =>
                 {
-                    b.Property<string>("Email")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Email");
+                    b.HasKey("Username");
 
                     b.ToTable("Users");
                 });
